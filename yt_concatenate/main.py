@@ -1,8 +1,9 @@
+from yt_concatenate.pipeline.pipeline import Pipeline
+from yt_concatenate.pipeline.steps.preflight import Preflight
 from yt_concatenate.pipeline.steps.get_video_list import GetVideoList
 from yt_concatenate.pipeline.steps.download_captions import DownloadCaptions
-from yt_concatenate.pipeline.steps.preflight import Preflight
+from yt_concatenate.pipeline.steps.read_caption import ReadCaption
 from yt_concatenate.pipeline.steps.postflight import Postflight
-from yt_concatenate.pipeline.pipeline import Pipeline
 from yt_concatenate.utils import Utils
 
 CHANNEL_ID = 'UC-qwAKnBVzUlbNwol3UCZIA'
@@ -16,6 +17,7 @@ def main():
         Preflight(),
         GetVideoList(),
         DownloadCaptions(),
+        ReadCaption(),
         Postflight()
     ]
 

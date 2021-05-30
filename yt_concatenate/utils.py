@@ -16,17 +16,18 @@ class Utils:
         os.makedirs(CAPTIONS_DIR, exist_ok=True)
 
     def get_video_list_filepath(self):
-      return os.path.join(DOWNLOADS_DIR, VIDEO_LIST_NAME)
+        return os.path.join(DOWNLOADS_DIR, VIDEO_LIST_NAME)
 
     @staticmethod
     def get_video_id_from_url(url):
         return url.split('?v=')[-1]
 
     def get_caption_filepath(self, url):
-        return os.path.join(CAPTIONS_DIR, self.get_video_id_from_url(url)+'.txt')
+        file_name =  self.get_video_id_from_url(url)
+        return os.path.join(CAPTIONS_DIR, f'{file_name}.txt')
 
     def check_file_exists(self, path):
-      return os.path.exists(path) and os.path.getsize(path) > 0
+        return os.path.exists(path) and os.path.getsize(path) > 0
 
     # def show_steps(self, fn):
     #     def wrap():
