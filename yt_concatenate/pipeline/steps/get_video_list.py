@@ -34,13 +34,13 @@ class GetVideoList(Step):
                     url = f'{first_url}&pageToken={next_page_token}'
                 except:
                     break
-            self.write_to_file(video_links,video_list_path)
+            self.write_to_file(video_links, video_list_path)
         return video_links
-    
+
     def write_to_file(self, video_links, filepath):
-            with open(filepath, 'a', encoding='UTF-8') as f:
-                f.writelines(video_links)
+        with open(filepath, 'a', encoding='UTF-8') as f:
+            f.writelines(video_links)
 
     def read_to_file(self, filepath):
-            with open(filepath, 'r', encoding='UTF-8') as f:
-                return f.readlines()
+        with open(filepath, 'r', encoding='UTF-8') as f:
+            return f.readlines()
