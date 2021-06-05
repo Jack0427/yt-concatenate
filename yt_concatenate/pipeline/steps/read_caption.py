@@ -6,6 +6,7 @@ class ReadCaption(Step):
         pass
 
     def process(self, data, inputs, utils):
+
         for yt in data:
             if not utils.check_file_exists(yt.caption_filepath):
                 continue

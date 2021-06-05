@@ -39,7 +39,8 @@ class GetVideoList(Step):
 
     def write_to_file(self, video_links, filepath):
         with open(filepath, 'a', encoding='UTF-8') as f:
-            f.writelines(video_links)
+            for line in video_links:
+                f.write(line + '\n')
 
     def read_to_file(self, filepath):
         with open(filepath, 'r', encoding='UTF-8') as f:

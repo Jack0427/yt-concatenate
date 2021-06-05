@@ -4,4 +4,4 @@ from yt_concatenate.model.yt import YT
 
 class InitializeYT(Step):
     def process(self, data, inputs, utils):
-        return [YT(url) for url in data]
+        return [YT(url.replace('\n', ''))for url in data]
