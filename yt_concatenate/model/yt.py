@@ -20,7 +20,7 @@ class YT:
         return os.path.join(CAPTIONS_DIR, f'{self.id}.txt')
 
     def get_video_filepath(self):
-        return os.path.join(VIDEOS_DIR, f'{self.id}.txt')
+        return os.path.join(VIDEOS_DIR, f'{self.id}.mp4')
 
     def __str__(self) -> str:
         return f'<YT id={self.id}>'

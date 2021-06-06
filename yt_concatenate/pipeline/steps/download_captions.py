@@ -19,12 +19,12 @@ class DownloadCaptions(Step):
             try:
                 source = YouTube(yt.url)
                 en_caption = source.captions['en'] if 'en' in source.captions else source.captions['a.en']
-            except:
-                print('download_caption')
-            if en_caption:
-                en_caption_convert_to_srt = en_caption.generate_srt_captions()
+                if en_caption:
+                    en_caption_convert_to_srt = en_caption.generate_srt_captions()
 
-                # save the caption to a file named Output.txt
-                with open(yt.caption_filepath, "w", encoding='UTF-8') as text_file:
-                    text_file.write(en_caption_convert_to_srt)
+                    # save the caption to a file named Output.txt
+                    with open(yt.caption_filepath, "w", encoding='UTF-8') as text_file:
+                        text_file.write(en_caption_convert_to_srt)
+            except:
+                print('download_caption error')
         return data
