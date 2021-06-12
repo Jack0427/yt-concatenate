@@ -8,8 +8,8 @@ from yt_concatenate.settings import OUTPUT_DIR
 
 
 class Utils:
-    def __init__(self) -> None:
-        pass
+    def __init__(self):
+        self.cpu_count = os.cpu_count()
 
     def creat_dirs(self):
         os.makedirs(DOWNLOADS_DIR, exist_ok=True)

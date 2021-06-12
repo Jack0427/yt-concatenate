@@ -1,6 +1,5 @@
 import urllib.request
 import json
-import os
 
 from yt_concatenate.settings import API_KEY
 from yt_concatenate.pipeline.steps.step import Step, StepException
