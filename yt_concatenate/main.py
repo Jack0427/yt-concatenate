@@ -39,7 +39,7 @@ def main():
 
     try:
         opts, args = getopt.getopt(argv, short_args, long_args)
-    except:
+    except getopt.GetoptError:
         print_usage()
         sys.exit(2)
     for opt, arg in opts:
