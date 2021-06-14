@@ -6,4 +6,6 @@ class Postflight(Step):
         pass
 
     def process(self, data, inputs, utils):
+        if inputs['cleanUp']:
+            utils.clean_up_videos_captions_file()
         print('in Postflight')

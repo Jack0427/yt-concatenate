@@ -19,7 +19,9 @@ class EditVideo(Step):
         final_clip = concatenate_videoclips(clips)
         output_filepath = utils.get_output_filepath(inputs['channel_id'], inputs['search_word'])
         final_clip.write_videofile(output_filepath)
-
+        # closing VideoFileClips
+        for video in clips:
+            video.close()
     def parse_caption_time(self, caption_time):
         start, end = caption_time.split(' --> ')
         return self.parse_time_str(start), self.parse_time_str(end)

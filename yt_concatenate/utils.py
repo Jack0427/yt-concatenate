@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from yt_concatenate.settings import DOWNLOADS_DIR
 from yt_concatenate.settings import VIDEOS_DIR
@@ -26,7 +27,6 @@ class Utils:
     def get_output_filepath(self, channel_id, search_word):
         return os.path.join(OUTPUT_DIR, f'{channel_id}_{search_word}.mp4')
 
-    # def show_steps(self, fn):
-    #     def wrap():
-    #         print(fn.__name__)
-    #     return wrap()
+    def clean_up_videos_captions_file(self):
+        shutil.rmtree(CAPTIONS_DIR)
+        shutil.rmtree(VIDEOS_DIR)
