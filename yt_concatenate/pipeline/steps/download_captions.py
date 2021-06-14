@@ -1,8 +1,12 @@
 from concurrent.futures import ThreadPoolExecutor
 from time import time
+from logging import getLogger
+
 from pytube import YouTube
 
 from yt_concatenate.pipeline.steps.step import Step
+
+logger = getLogger()
 
 
 class DownloadCaptions(Step):
@@ -15,7 +19,7 @@ class DownloadCaptions(Step):
                 executor.submit(self.download_captions, yt)
         end = time()
         spent = end - start
-        print(f'download_caption spent {spent} sec')
+        logger.info(f'download_caption spent {spent} sec')
         return data
 
     def download_captions(self, yt):
@@ -28,4 +32,4 @@ class DownloadCaptions(Step):
                 with open(yt.caption_filepath, "w", encoding='UTF-8') as text_file:
                     text_file.write(en_caption_convert_to_srt)
         except:
-            print('download_caption error')
+            logger.error('download_caption error')

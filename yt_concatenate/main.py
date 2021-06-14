@@ -12,7 +12,7 @@ from yt_concatenate.pipeline.steps.download_videos import DownloadVideos
 from yt_concatenate.pipeline.steps.edit_video import EditVideo
 from yt_concatenate.pipeline.steps.postflight import Postflight
 from yt_concatenate.utils import Utils
-
+from yt_concatenate.log import config_log
 CHANNEL_ID = 'UC-qwAKnBVzUlbNwol3UCZIA'
 
 
@@ -66,7 +66,7 @@ def main():
         EditVideo(),
         Postflight()
     ]
-
+    config_log()
     utils = Utils()
     p = Pipeline(steps)
     p.run(inputs, utils)

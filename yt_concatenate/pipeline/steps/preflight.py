@@ -1,3 +1,4 @@
+from logging import getLogger
 from .step import Step
 
 
@@ -6,5 +7,6 @@ class Preflight(Step):
         pass
 
     def process(self, data, inputs, utils):
-        print('in Preflight')
+        logger = getLogger()
+        logger.info('in Preflight')
         utils.creat_dirs()

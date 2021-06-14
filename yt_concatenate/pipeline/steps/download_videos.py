@@ -1,9 +1,12 @@
 from concurrent.futures import ThreadPoolExecutor
 from time import time
 from pytube import YouTube
+from logging import getLogger
 
 from .step import Step
 from yt_concatenate.settings import VIDEOS_DIR
+
+logger = getLogger()
 
 
 class DownloadVideos(Step):
@@ -17,12 +20,12 @@ class DownloadVideos(Step):
                 executor.submit(self.downlaoad_videos, yt)
         end = time()
         spent = end - start
-        print(f'download_videos spent {spent} sec')
+        logger.info(f'download_videos spent {spent} sec')
         return data
 
     def downlaoad_videos(self, yt):
         try:
             YouTube(yt.url).streams.first().download(output_path=VIDEOS_DIR, filename=yt.id)
-            print('downloading', yt.url)
+            logger.info('downloading', yt.url)
         except:
-            print('Error', yt.url)
+            logger.error('Error', yt.url)
